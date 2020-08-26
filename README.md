@@ -8,5 +8,7 @@ All you need to do is change the json path and class names to your own.
 
 ## Reference
 [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
+
 [mmdetection](https://github.com/open-mmlab/mmdetection)
+
 [CenterNet](https://github.com/xingyizhou/CenterNet)
