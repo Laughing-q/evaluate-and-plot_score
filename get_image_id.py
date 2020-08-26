@@ -1,7 +1,11 @@
 import os
 import json
 from pathlib import Path
-img_dir = './yolo_annotation'
+
+if not os.path.exists('image_id'):
+    os.mkdir('image_id')
+    
+img_dir = 'your_annotation_path'
 
 json_file = os.path.join(img_dir, "instances_val.json")
 with open(json_file) as f:
