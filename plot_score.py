@@ -117,7 +117,6 @@ if __name__ == '__main__':
         stats.append((correct, r_scores, r_cls, t_cls))
     stats = [np.concatenate(x, 0) for x in zip(*stats)]
 
-    names = ['person', 'illgal_person', 'work_cloth', 'normal_cloth', 'flower', 'tie', 'hand', 'workcard', 'phone',
-             'head', 'hand_phone'
-             ]
+    names = ['person', 'car', 'cloth', 'bird', 'flower', 'tie', 'hand', 'smoke', 'phone', 'head',
+        'paper' ]
     draw_conf_distribution(*stats, names, save_dir='./')
