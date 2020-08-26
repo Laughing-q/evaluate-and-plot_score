@@ -108,8 +108,7 @@ def print_log(msg, logger=None, level=logging.INFO):
 
 def evaluate(results_json, targets_json):
     class_name = (
-        'person', 'illgal_person', 'work_cloth', 'normal_cloth', 'flower', 'tie', 'hand', 'workcard', 'phone', 'head',
-        'hand_phone')
+        'person', 'car', 'cloth', 'bird', 'flower', 'tie', 'hand', 'smoke', 'phone', 'head', 'paper')
     # _valid_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
     # cat_ids = {v: i for i, v in enumerate(_valid_ids)}
     cocoGt = COCO(targets_json)
@@ -157,4 +156,4 @@ def evaluate(results_json, targets_json):
 
 
 if __name__ == '__main__':
-    evaluate('best_zw810-x_results.json', 'data/zw810/yolo_annotation/instances_val.json')
+    evaluate('your_results.json', 'your_instances.json')
