@@ -30,10 +30,12 @@ def draw_conf_distribution(tp, conf, pred_cls, target_cls, names, save_dir):
     # for j in conf_list:
     #     print(j.shape)
     sqrt_c = math.sqrt(len(conf_list))
-    # h = math.floor(sqrt_c)
-    # w = math.ceil(sqrt_c)
-    h = math.floor(sqrt_c) + 1
-    w = math.floor(sqrt_c) + 1
+    h = math.floor(sqrt_c)
+    w = math.ceil(sqrt_c)
+    if h * w < len(conf_list):
+        h += 1
+    # h = math.floor(sqrt_c) + 1
+    # w = math.floor(sqrt_c) + 1
     fig, ax = plt.subplots(h, w, figsize=(12, 6))
     ax = ax.ravel()
     for i in range(len(conf_list)):
