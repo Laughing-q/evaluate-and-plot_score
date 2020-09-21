@@ -32,7 +32,7 @@ def draw_conf_distribution(tp, conf, pred_cls, target_cls, names, save_dir):
     sqrt_c = math.sqrt(len(conf_list))
     h = math.floor(sqrt_c)
     w = math.ceil(sqrt_c)
-    if h * w < len(conf_list):
+    if h * w < len(conf_list) or h * w == 1:
         h += 1
     # h = math.floor(sqrt_c) + 1
     # w = math.floor(sqrt_c) + 1
