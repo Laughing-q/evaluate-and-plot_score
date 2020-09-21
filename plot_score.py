@@ -15,8 +15,8 @@ def hist2d(x, y, n=100):
     return np.log(hist[xidx, yidx])
 
 
-def draw_conf_distribution(tp, conf, pred_cls, target_cls, names, save_dir):
-    # i = np.argsort(-conf)
+def draw_conf_distribution(tp, conf, pred_cls, target_cls, names, save_dir, hist=True):
+    # i = np.argsort(conf)
     # tp, conf, pred_cls = tp[i], conf[i], pred_cls[i]
     conf = conf[tp[:, 0]]
     pred_cls = pred_cls[tp[:, 0]]
@@ -36,12 +36,16 @@ def draw_conf_distribution(tp, conf, pred_cls, target_cls, names, save_dir):
         h += 1
     # h = math.floor(sqrt_c) + 1
     # w = math.floor(sqrt_c) + 1
+    # print(h, w)
     fig, ax = plt.subplots(h, w, figsize=(4 * w, 2 * h))
     ax = ax.ravel()
     for i in range(len(conf_list)):
-        ax[i].scatter(conf_list[i], range(len(conf_list[i])), c=hist2d(conf_list[i], conf_list[i], 90), cmap='jet')
         ax[i].set_title(names[int(unique_classes[i])])
         ax[i].set_xlim(0, 1)
+        if hist:
+            ax[i].hist(conf_list[i], bins=np.linspace(0, 1, 11), rwidth=0.9)
+        else:
+            ax[i].scatter(conf_list[i], range(len(conf_list[i])), c=hist2d(conf_list[i], conf_list[i], 90), cmap='jet')
     fig.tight_layout()
     fig.savefig(Path(save_dir) / 'conf_distribution.png', dpi=200)
     # plt.show()
