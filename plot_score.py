@@ -36,7 +36,7 @@ def draw_conf_distribution(tp, conf, pred_cls, target_cls, names, save_dir):
         h += 1
     # h = math.floor(sqrt_c) + 1
     # w = math.floor(sqrt_c) + 1
-    fig, ax = plt.subplots(h, w, figsize=(12, 6))
+    fig, ax = plt.subplots(h, w, figsize=(4 * w, 2 * h))
     ax = ax.ravel()
     for i in range(len(conf_list)):
         ax[i].scatter(conf_list[i], range(len(conf_list[i])), c=hist2d(conf_list[i], conf_list[i], 90), cmap='jet')
